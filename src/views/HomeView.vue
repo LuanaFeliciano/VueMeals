@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import ListMeals from '../components/ListMeals.vue';
 import ApiBase from '../ApiCustom';
 
@@ -16,13 +16,11 @@ onMounted(async () => {
     }
   }
 });
-
-
 </script>
 
 <template>
   <main>
-    <div class="container  mt-4">
+    <div class="container  mt-5">
       <div v-if="meals && meals.length > 0">
         <div class="title text-center text-success">
                 <h1>Refeições Aleatórias</h1>
