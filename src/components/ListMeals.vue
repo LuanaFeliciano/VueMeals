@@ -1,34 +1,31 @@
 <script setup>
-//const pokemon = defineProps(['name', 'url', 'img']);
+const meal = defineProps(['meals']);
 </script>
 
 <template>
-    <div class="container mt-4 ">
-        <div class="row justify-content-center">
-            <div class="title text-center mb-2 text-success">
-                <h1>Refeições Aleatórias</h1>
+  <div class="container mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-4" v-for="meal in meals" :key="meal.idMeal" style="max-width: 350px; max-height: 500px;">
+        <!-- Card -->
+        <div class="card mb-3">
+            <img :src="meal.strMealThumb" class="card-img-top" alt="Imagem da Receita">
+          <div class="d-grid card-body">
+            <h5 class="card-title capitalize">{{ meal.strMeal }}</h5>
+            <p class="card-text">
+              Categoria: {{ meal.strCategory }}<br>
+              Area: {{ meal.strArea }}
+            </p>
+            <div class="d-grid gap-2 d-md-flex">
+              <a :href="meal.strYoutube" target="_blank" class="btn btn-warning" type="button">Vídeo</a>
+              <router-link :to="'/receita/' + meal.idMeal" class="btn btn-success">Receita</router-link>
             </div>
-            <div class="col-md-4" v-for="index in 6" :key="index" style="max-width: 350px;">
-                <!-- Card -->
-                <div class="card mb-3">
-                    <img src="https://www.themealdb.com/images/media/meals/y7h0lq1683208991.jpg" class="card-img-top"
-                        alt="...">
-                    <div class="d-grid card-body">
-                        <h5 class="card-title capitalize">Meal</h5>
-                        <p class="card-text">Categoria: Vegetariana<br>
-                            Area: Brasilieta
-                        </p>
-                        <div class="d-grid gap-2 d-md-flex">
-                            <button class="btn btn-success" type="button">Receita</button>
-                            <button class="btn btn-warning" type="button">Vídeo</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
+
   
   
   
