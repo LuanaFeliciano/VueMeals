@@ -21,7 +21,7 @@ const filteredIngredients = (meal) => {
 <template>
     <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="col-md-4" v-for="meal in meals" :key="meal.idMeal">
+            <div  :class="['col-md-4', meals.length === 1 ? 'col-md-12' : '']" v-for="meal in meals" :key="meal.idMeal">
                 <!-- Card -->
                 <div class="card mb-5" style="max-width: 350px;">
                     <img style="max-width: 450px;" :src="meal.strMealThumb" class="card-img-top" alt="Imagem da Receita">

@@ -18,7 +18,7 @@
             <router-link to="/" class="nav-link text" aria-current="page">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link text">Pesquisar por Nome</router-link>
+            <router-link to="/PesquisaNome" class="nav-link text">Pesquisar por Nome</router-link>
           </li>
           <li class="nav-item">
             <router-link to="#" class="nav-link text">Pesquisar por Ingredientes</router-link>
@@ -31,18 +31,5 @@
   <div class="main mt-5 d-flex justify-content-center align-items-center col-md-12">
     <router-view></router-view>
   </div>
-
-  <footer class="bg-light">
-    <div> UNIMAR | ADS | {{ new Date().getFullYear() }}</div>
-  </footer>
 </template>
-<style>
-footer {
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-}
-</style>
+
