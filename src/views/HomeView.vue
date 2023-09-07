@@ -7,8 +7,7 @@ import ListMeals from '../components/ListMeals.vue';
 <template>
   <main>
     <div class="container">
-      <div class="title"><h1>Refeições</h1></div>
-      <div class="col-md-12">
+      <div>
             <ListMeals />
       </div>
     </div>

@@ -25,8 +25,8 @@
   </div>
 </nav>
 
-  <div class="main mt-4 d-flex justify-content-center align-items-center">
-    <router-view></router-view>
+  <div class="main mt-3 d-flex justify-content-center align-items-center col-md-12">
+      <router-view></router-view>
   </div>
 
   <footer class="bg-light">
@@ -36,7 +36,7 @@
 </template>
 <style>
 footer {
-  position: fixed;
+ 
   bottom: 0;
   width: 100%;
   display: flex;
