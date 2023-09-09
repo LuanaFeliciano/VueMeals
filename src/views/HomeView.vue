@@ -9,7 +9,6 @@ const generateRandomMeals = async () => {
   meals.value = [];
   for (let i = 0; i < 9; i++) {
     const response = await ApiBase.get('random.php');
-    console.log(response.data);
 
     if (response.data.meals && response.data.meals.length > 0) {
       meals.value.push(response.data.meals[0]);

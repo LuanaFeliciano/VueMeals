@@ -21,7 +21,7 @@
             <router-link to="/PesquisaNome" class="nav-link text">Pesquisar por Nome</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="#" class="nav-link text">Pesquisar por Ingredientes</router-link>
+            <router-link to="/PesquisarPorIngrediente" class="nav-link text">Pesquisar por Ingredientes</router-link>
           </li>
         </ul>
       </div>
