@@ -24,14 +24,16 @@ onMounted(() => {
 <template>
   <main>
     <div class="mt-5">
-        <div class="title text-center text-success">
-          <h1>Pesquisar Por Nome</h1>
-            <div>
-              <input v-model="searchMeal" @input="search" class="form-control form-control-lg" type="text" placeholder="Digite um prato em inglês" aria-label=".form-control-lg example">
-            </div>
+      <h1>Pesquisar Por Nome</h1>
+      <div class="title text-center text-success">
+
+        <div>
+          <input v-model="searchMeal" @input="search" class="form-control form-control-lg" type="text"
+            placeholder="Digite um prato em inglês" aria-label=".form-control-lg example">
         </div>
-        <ListMeals :meals="meals"/>
       </div>
+      <ListMeals :meals="meals" />
+    </div>
   </main>
 </template>
 

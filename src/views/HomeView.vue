@@ -5,8 +5,8 @@ import ApiBase from '../ApiCustom';
 
 const meals = ref([]);
 
-onMounted(async () => {
-  // guardo 9 meals na const meals
+const generateRandomMeals = async () => {
+  meals.value = [];
   for (let i = 0; i < 9; i++) {
     const response = await ApiBase.get('random.php');
     console.log(response.data);
@@ -15,7 +15,9 @@ onMounted(async () => {
       meals.value.push(response.data.meals[0]);
     }
   }
-});
+};
+
+onMounted(generateRandomMeals);
 </script>
 
 <template>
@@ -23,9 +25,10 @@ onMounted(async () => {
     <div class="container  mt-5">
       <div v-if="meals && meals.length > 0">
         <div class="title text-center text-success">
-                <h1>Refeições Aleatórias</h1>
+          <h1>Refeições Aleatórias</h1>
+          <button class="btn btn-light" @click="generateRandomMeals">Gerar Novos Pratos Aleatórios</button>
         </div>
-            <ListMeals :meals="meals"/>
+        <ListMeals :meals="meals" />
       </div>
     </div>
   </main>

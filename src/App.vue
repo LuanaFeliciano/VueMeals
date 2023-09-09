@@ -5,7 +5,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light  static-top fixed-top">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand text-success"> <img src="/public/mealplate.svg" alt="Ícone"
+      <router-link to="/" class="navbar-brand text-success"> <img src="/mealplate.svg" alt="Ícone"
           class="icon-svg"> Vue<span class="text">Meal</span></router-link>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
