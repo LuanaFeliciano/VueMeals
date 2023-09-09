@@ -17,3 +17,6 @@ Criar um site que permita aos usuários descobrir e explorar uma variedade de re
 - Apresentar receitas de refeições aleatórias na página inicial.
 - Permitir aos usuários pesquisar receitas por nome.
 - Permitir aos usuários pesquisar receitas por ingredientes.
+
+## 🔗 Link do Projeto
+https://vue-meals-self.vercel.app/
