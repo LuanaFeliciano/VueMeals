@@ -1,6 +1,7 @@
 <script setup>
+import { ref } from "vue";
 const meal = defineProps(['meals']);
-
+const selectedMeal = ref([]);
 
 const filteredIngredients = (meal) => {
     const ingredients = [];
@@ -16,12 +17,22 @@ const filteredIngredients = (meal) => {
 
     return ingredients;
 };
+
+const openModal = (meal) => {
+    selectedMeal.value = meal;
+    $("#exampleModalToggle2").modal("show");
+};
+
+const closeModal = () => {
+    selectedMeal.value = null;
+    $("#exampleModalToggle2").modal("hide");
+};
 </script>
 
 <template>
     <div class="container mt-3">
-        <div class="row justify-content-center">
-            <div  :class="['col-md-4', meals.length === 1 ? 'col-md-12' : '']" v-for="meal in meals" :key="meal.idMeal">
+        <div class="row">
+            <div :class="['col-md-4', meals.length === 1 ? 'col-md-12' : '']" v-for="meal in meals" :key="meal.idMeal">
                 <!-- Card -->
                 <div class="card mb-5" style="max-width: 350px;">
                     <img style="max-width: 450px;" :src="meal.strMealThumb" class="card-img-top" alt="Imagem da Receita">
@@ -33,8 +44,7 @@ const filteredIngredients = (meal) => {
                         </p>
                         <div class="d-grid gap-2 d-md-flex">
                             <a :href="meal.strYoutube" target="_blank" class="btn btn-warning" type="button">Vídeo</a>
-                            <button class="btn btn-success" type="button" data-bs-toggle="modal"
-                                :data-bs-target="'#exampleModalToggle2-' + meal.idMeal">Receita</button>
+                            <button @click="openModal(meal)" class="btn btn-success" type="button">Receita</button>
                         </div>
                     </div>
                 </div>
@@ -43,25 +53,26 @@ const filteredIngredients = (meal) => {
     </div>
 
     <!-- Modal para exibir a receita -->
-    <div v-for="meal in meals" :key="'modal-' + meal.idMeal" class="modal fade" :id="'exampleModalToggle2-' + meal.idMeal"
-        tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="exampleModalToggle2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" v-if="selectedMeal">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ meal.strMeal }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ selectedMeal.strMeal }}</h5>
+                    <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h6>Ingredientes:</h6>
                     <ul>
-                        <li v-for="ingredient in filteredIngredients(meal)" :key="ingredient.index">
+                        <li v-for="ingredient in filteredIngredients(selectedMeal)" :key="ingredient.index">
                             {{ ingredient.name }}: {{ ingredient.measure }}
                         </li>
                     </ul>
-                    <p>{{ meal.strInstructions }}</p>
+                    <p>{{ selectedMeal.strInstructions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-secondary" @click="closeModal">
+                        Fechar
+                    </button>
                 </div>
             </div>
         </div>
