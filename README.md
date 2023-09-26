@@ -37,4 +37,5 @@ Criar um site que permita aos usuários descobrir e explorar uma variedade de re
 
 ## 🔗 Link do Projeto
 * Clique no link para abrir o site no seu navegador </br>
+* O site pode ser aberto tanto no computador quanto no celular </br>
 https://vue-meals-self.vercel.app/
